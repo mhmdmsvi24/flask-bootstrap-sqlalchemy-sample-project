@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from models import Role, User
 
-from main import app
+from app.main import app
 
 # SQL alchemy init
 basedir = os.path.abspath(os.path.dirname(__file__))

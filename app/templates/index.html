@@ -15,9 +15,9 @@
 
 {% block main %}
   {% if error == '404' %}
-    {% include '404.html'   %}
+    {% include 'errors/404.html'   %}
   {% elif error == '500' %}
-    {% include '500.html'   %}
+    {% include 'errors/500.html'   %}
   {% else %}
     <h1>Hi This is Template</h1>
   {% endif %}
