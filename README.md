@@ -2,7 +2,8 @@
    Blogging Platform Project with Python and Flask
 
 ## Desciption: 
-   This is simple Blog website project created for fun and to taste other technologies
+   This is simple Blog website project created for fun and to taste other technologies.
+   Run the Project: `sh start.sh`
 
 ## Tech Stack
 

@@ -1,9 +1,19 @@
+import os
+
+from dotenv import load_dotenv
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap5 as Bootstrap
+
+# Env variables
+load_dotenv()
+
+# WTForms CSRF
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # Flask init
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
+app.config["SECRET_KEY"] = SECRET_KEY
 
 
 # Routes
