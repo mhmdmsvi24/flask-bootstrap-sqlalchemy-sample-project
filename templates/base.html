@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block head %}
+    <title>{% block title %}{% endblock %} - Page</title>
+    {% endblock %}
+
+    {% block styles %}
+      <!-- Bootstrap CSS -->
+      {{ bootstrap.load_css() }}
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+      
+      {% include 'ui/nav.html' %}
+      <!--  -->
+      <div class="container">
+        {% block main %}{% endblock %}
+      </div>
+        <!--  -->
+      {% include 'ui/footer.html' %}
+
+    {% endblock %}
+    {% block scripts %}
+      <!-- Optional JavaScript -->
+      {{ bootstrap.load_js() }}
+    {% endblock %}
+  </body>
+</html>

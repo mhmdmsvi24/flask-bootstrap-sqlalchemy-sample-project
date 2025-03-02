@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} 
+  {% if error == '404' %}
+    Not Found
+  {% elif error == '500' %}
+    Server Error
+  {% else %}
+    Main
+  {% endif %}
+{% endblock %}
+
+{% block head %} 
+  {{ super() }} 
+{% endblock %}
+
+{% block main %}
+  {% if error == '404' %}
+    {% include '404.html'   %}
+  {% elif error == '500' %}
+    {% include '500.html'   %}
+  {% else %}
+    <h1>Hi This is Template</h1>
+  {% endif %}
+{% endblock %}
+
+{% block body %}
+  {{ super() }}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} 
+  User {{ user['name'] | capitalize }} 
+{% endblock %} 
+
+{% block head %}
+  {{ super() }} 
+{% endblock %}
+
+{% block main %}
+  <h1 class="text-primary">Welcome user {{ user['name'] | capitalize }}</h1>
+  <h2>You currently have {{ user['role'] }} capabilites</h2>
+
+  {% if user['role'] == 'Admin' %}
+    <em><i>VIP</i></em>
+  {% else %}
+    <i>Hello Cheap labor</i>
+  {% endif %}
+
+  <ul>
+    {% for role in user['tags'] %}
+      <li>{{ role }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+{% block body %}
+  {{super()}}
+{% endblock %}
