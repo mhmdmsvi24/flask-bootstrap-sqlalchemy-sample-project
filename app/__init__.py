@@ -2,9 +2,10 @@ from flask import Flask
 
 from .config import Config
 from .extensions import Bootstrap
+from .main import main_bp
 
 
-def create_app():
+def create_app()->Flask:
     # Init
     app = Flask(__name__)
 
@@ -17,4 +18,8 @@ def create_app():
     # Extensions
     Bootstrap(app)
 
+    app.register_blueprint(main_bp)
+
     return app
+
+app = create_app()

@@ -1,7 +1,8 @@
-from custom_validators import PasswordValidator
 from flask_wtf import FlaskForm
 from wtforms import EmailField, PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
+
+from .custom_validators.passwordvalidator import PasswordValidator
 
 
 class SignupForm(FlaskForm):

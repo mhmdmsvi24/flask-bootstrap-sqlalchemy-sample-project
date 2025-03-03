@@ -4,20 +4,20 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from models import Role, User
 
-from app.main import app
+from app.main import main_bp
 
 # SQL alchemy init
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
+main_bp.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
     basedir, "data.sqlite"
 )
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-db = SQLAlchemy(app)
-Migrate(app, db)
+main_bp.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db = SQLAlchemy(main_bp)
+Migrate(main_bp, db)
 
 
-@app.shell_context_processor
+@main_bp.shell_context_processor
 def make_shell_context():
     return dict(db=db, User=User, Role=Role)

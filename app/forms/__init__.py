@@ -1,3 +1,3 @@
-from .feedback import FeedbackForm
-from .login import LoginForm
-from .signup import SignupForm
+from app.forms.feedback import FeedbackForm
+from app.forms.login import LoginForm
+from app.forms.signup import SignupForm

@@ -1,1 +1,0 @@
-from .passwordvalidator import PasswordValidator
