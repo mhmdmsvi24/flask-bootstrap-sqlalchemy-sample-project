@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+  {{ super() }}
+
+  <style>
+    body {
+        background-color: crimson;
+    }
+    .container-form {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+{% endblock %}
+
+{% block title %} 
+  User {{ user['name'] | capitalize }} Feedback
+{% endblock %} 
+
+{% block head %}
+  {{ super() }} 
+{% endblock %}
+
+{% block main %}
+<div class="container-form">
+    <h2 class="text-center mb-4">Login Form</h2>
+
+    <form method="POST">
+        <!-- Email Field -->
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", placeholder="Enter your email") }}
+            {% if form.email.errors %}
+                <div class="text-danger">
+                    {% for error in form.email.errors %}
+                        <small>{{ error }}</small><br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Password Field -->
+        <div class="mb-3">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control", placeholder="Enter your password") }}
+            {% if form.name.errors %}
+                <div class="text-danger">
+                    {% for error in form.name.errors %}
+                        <small>{{ error }}</small><br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary w-100">
+            <i class="fas fa-paper-plane"></i> {{ form.submit.label.text }}
+        </button>
+    </form>
+</div>
+{% endblock %}
