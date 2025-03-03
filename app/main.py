@@ -1,7 +1,7 @@
 from flask import redirect, render_template
 
 from app import create_app
-from app.forms import FeedbackForm
+from app.forms import FeedbackForm, LoginForm, SignupForm
 
 from .error_handlers import internal_server_error, page_not_found
 
@@ -36,6 +36,26 @@ def submitFeedback():
         return redirect("/")
 
     return render_template("/forms/feedback.html", user=fetched_user[12], form=form)
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        return redirect("/")
+
+    return render_template("/forms/login.html", form=form)
+
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    form = SignupForm()
+
+    if form.validate_on_submit():
+        return redirect("/")
+
+    return render_template("/forms/signup.html", form=form)
 
 
 # Error Handlers

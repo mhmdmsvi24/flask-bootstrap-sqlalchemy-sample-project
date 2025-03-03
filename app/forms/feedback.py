@@ -2,10 +2,9 @@ from flask_wtf import FlaskForm
 from wtforms import EmailField, HiddenField, StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email, Length
 
-
 class FeedbackForm(FlaskForm):
-    name = StringField(
-        "Your name: ",
+    username = StringField(
+        "Your username: ",
         validators=[
             Length(3, message="Invalid Length: Minim 3 characters"),
             DataRequired(message="Required Field"),
